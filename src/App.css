@@ -24,8 +24,9 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-.back{
+/*.back{
   margin: 0 auto;
   padding: 0 auto;
   margin-top: 5em;
 }
+*/

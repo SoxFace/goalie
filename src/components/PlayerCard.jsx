@@ -20,6 +20,8 @@ const styles = {
   }
 };
 
+const clubLogo = `<img src="${sydneyfc}">`
+
 export default class PlayerCard extends Component{
 
   constructor(props){
@@ -45,13 +47,18 @@ export default class PlayerCard extends Component{
     <Card onClick={this.flip.bind(this)}>
       <CardMedia 
         overlay={<CardTitle 
-          title="Latha Front" subtitle="Defender" />}
-      >
+        title="Latha" subtitle="Defender"
+        children={clubLogo}
+        />
+      }>
+
+      
         <img src={latha} alt="Player Profile"/>
+
       </CardMedia>
-      <img src={sydneyfc} alt="logo" style={{width: '80px', paddingTop: '5px'}} />
+      
       <CardActions>
-        <RaisedButton primary={true} fullWidth={true}label="FLIP ME" />
+        <RaisedButton primary={true} fullWidth={true}label="Open Stats" />
       </CardActions>
     </Card>
     }
@@ -60,8 +67,9 @@ export default class PlayerCard extends Component{
       <div className="back">
       <Card onClick={this.flip.bind(this)}>
         <CardMedia
-          overlay={<CardTitle title="Latha Back" subtitle="Defender" />}
+          overlay={<CardTitle title="Latha" subtitle="Defender" />}
         >
+        <img src={latha} alt="Player Profile"/>
         </CardMedia>
         <CardTitle title="Club Stats" />
           <div style={styles.wrapper}>
@@ -108,7 +116,7 @@ export default class PlayerCard extends Component{
             </Chip>
           </div>
         <CardActions>
-          <RaisedButton primary={true} fullWidth={true}label="FLIP ME" />
+          <RaisedButton primary={true} fullWidth={true}label="Close Stats" />
         </CardActions>
       </Card>
       </div>
