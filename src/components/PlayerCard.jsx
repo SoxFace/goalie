@@ -1,22 +1,25 @@
 import React, {Component} from 'react';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import latha from '../../public/latha.jpeg'
-import sydneyfc from '../../public/sydneyfc.png'
-import PlayerCardStats from './PlayerCardStats.jsx';
-import ReactDOM from 'react-dom';
+import {Card, CardActions, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
+import latha from '../../public/latha.jpeg';
+import sydneyfc from '../../public/sydneyfc.png';
+
 
 export default class PlayerCard extends Component{
 
   constructor(props){
     super(props);
     this.state = {
-      front: true
+      front: true,
+      club: 'Sydney FC',
+      gradeType: 'Senior', //['Senior', 'Junior', 'Vet'],
+      gradeStandard:  'Division 4', //['A/W League', 'Premier', 'Club'],
+      team: 'name of team',
+      role: 'player', //['player', 'parent', 'coach', 'admin']
     }
   }
 
   flip(event){
-    console.log(event);
     this.setState({front: !this.state.front});
   }
 
@@ -25,21 +28,16 @@ export default class PlayerCard extends Component{
     <div>
     { this.state.front &&
     <Card onClick={this.flip.bind(this)}>
-      <CardMedia
-        overlay={<CardTitle title="Latha The Legend" subtitle="Defender" />}
+      <CardMedia 
+        overlay={<CardTitle 
+          title="Latha Front" subtitle="Defender" />}
       >
-        <img src={latha} />
+        <img src={latha} alt="Player Profile"/>
       </CardMedia>
-      <CardTitle title="Club Stats" subtitle="MVP Stats" />
+      <img src={sydneyfc} alt="logo" style={{width: '80px', paddingTop: '5px'}} />
       <CardActions>
-        <FlatButton label="Action1" />
-        <FlatButton label="Action2" />
+        <RaisedButton primary={true} fullWidth={true}label="FLIP ME" />
       </CardActions>
-      <CardHeader
-        title="Sydney FC"
-        subtitle="2017"
-        avatar={sydneyfc}
-      />
     </Card>
     }
     {
@@ -47,7 +45,7 @@ export default class PlayerCard extends Component{
       <div className="back">
       <Card onClick={this.flip.bind(this)}>
         <CardMedia
-          overlay={<CardTitle title="Latha The Legend" subtitle="Defender" />}
+          overlay={<CardTitle title="Latha Back" subtitle="Defender" />}
         >
         </CardMedia>
         <CardTitle title="Club Stats" subtitle="MVP Stats" />
@@ -59,14 +57,8 @@ export default class PlayerCard extends Component{
         </CardText>
 
         <CardActions>
-          <FlatButton label="Action1" />
-          <FlatButton label="Action2" />
+          <RaisedButton primary={true} fullWidth={true}label="FLIP ME" />
         </CardActions>
-        <CardHeader
-          title="Sydney FC"
-          subtitle="2017"
-          avatar={sydneyfc}
-        />
       </Card>
       </div>
     }

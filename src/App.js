@@ -4,6 +4,7 @@ import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import PlayerCard from './components/PlayerCard';
+import Footer from './components/Footer';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </div>
         <PlayerCard />
+        <Footer />
       </div>
       </MuiThemeProvider>
     );
