@@ -3,7 +3,6 @@ import logo from '../public/goalie_logo.png'
 import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin'
-
 import PlayerCard from './components/PlayerCard';
 
 class App extends Component {
