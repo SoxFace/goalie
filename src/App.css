@@ -39,8 +39,9 @@
 .overlay-image img{
   width: 20%;
   position: absolute;
-  top: 0;
-  left: 0;
+  padding-left: 10px;
+  top: -20px;
+  left: 5px;
 }
 .fade-in{
   animation: fadeIn 1s;
