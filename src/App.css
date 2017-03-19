@@ -24,9 +24,21 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-/*.back{
-  margin: 0 auto;
-  padding: 0 auto;
-  margin-top: 5em;
+.overlay-image{
+  display: inline-block;
+  overflow: hidden;
+  width: 30%;
+  height: 30%;
+  /*position: relative;*/
+  /*top: -20%;*/
+  /*left: -20%;*/
 }
-*/
+.overlay-children{
+  flex-direction: column;
+}
+.overlay-image img{
+  width: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

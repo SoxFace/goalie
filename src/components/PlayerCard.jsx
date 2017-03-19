@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import {Card, CardActions, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import latha from '../../public/latha.jpeg';
 import sydneyfc from '../../public/sydneyfc.png';
 import {blue100} from 'material-ui/styles/colors';
-
 // Back page
 import Chip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
@@ -20,7 +19,9 @@ const styles = {
   }
 };
 
-const clubLogo = `<img src="${sydneyfc}">`
+const overlayStyle = {
+  color: 'white'
+};
 
 export default class PlayerCard extends Component{
 
@@ -45,18 +46,22 @@ export default class PlayerCard extends Component{
     <div>
     { this.state.front &&
     <Card onClick={this.flip.bind(this)}>
-      <CardMedia 
-        overlay={<CardTitle 
-        title="Latha" subtitle="Defender"
-        children={clubLogo}
-        />
-      }>
-
-      
-        <img src={latha} alt="Player Profile"/>
+      <CardMedia
+        overlay={   <div className="overlay-image">
+                        <div className="overlay-children">
+                        <CardTitle
+                          title="Latha" subtitle="Defender" titleStyle={overlayStyle} subtitleStyle={overlayStyle}/>
+                        </div>
+                          <div className="overlay-children">
+                            <img src={sydneyfc}/>
+                          </div>
+                    </div>
+        }
+      >
+      <img src={latha} alt="Player Profile"/>
 
       </CardMedia>
-      
+
       <CardActions>
         <RaisedButton primary={true} fullWidth={true}label="Open Stats" />
       </CardActions>
@@ -67,7 +72,16 @@ export default class PlayerCard extends Component{
       <div className="back">
       <Card onClick={this.flip.bind(this)}>
         <CardMedia
-          overlay={<CardTitle title="Latha" subtitle="Defender" />}
+          overlay={<div className="overlay-image">
+                      <div className="overlay-children">
+                        <CardTitle title="Latha" subtitle="Defender"
+                          titleStyle={overlayStyle} subtitleStyle={overlayStyle}/>
+                      </div>
+                          <div className="overlay-children">
+                            <img src={sydneyfc}/>
+                          </div>
+                      </div>
+                  }
         >
         <img src={latha} alt="Player Profile"/>
         </CardMedia>
