@@ -33,7 +33,8 @@ export default class PlayerCard extends Component{
       gradeType: 'Senior', //['Senior', 'Junior', 'Vet'],
       gradeStandard:  'Division 4', //['A/W League', 'Premier', 'Club'],
       team: 'name of team',
-      role: 'player', //['player', 'parent', 'coach', 'admin']
+      role: 'player', //['player', 'parent', 'coach', 'admin'],
+      statsClass: ''
     }
   }
 
@@ -41,11 +42,21 @@ export default class PlayerCard extends Component{
     this.setState({front: !this.state.front});
   }
 
+  fadeOut(event){
+    console.log("Present sir!!");
+    if(this.state.front){
+      this.setState({statsClass: 'back-out'});
+    }
+    else{
+      this.setState({statsClass: ''});
+    }
+  }
+
   render(){
     return(
     <div>
     { this.state.front &&
-    <Card onClick={this.flip.bind(this)}>
+    <Card onClick={this.flip.bind(this)} className="fade-in">
       <CardMedia
         overlay={   <div className="overlay-image">
                         <div className="overlay-children">
@@ -63,13 +74,13 @@ export default class PlayerCard extends Component{
       </CardMedia>
 
       <CardActions>
-        <RaisedButton primary={true} fullWidth={true}label="Open Stats" />
+        <RaisedButton primary={true} fullWidth={true} label="Open Stats" />
       </CardActions>
     </Card>
     }
     {
       !this.state.front &&
-      <div className="back">
+      <div>
       <Card onClick={this.flip.bind(this)}>
         <CardMedia
           overlay={<div className="overlay-image">
@@ -85,6 +96,7 @@ export default class PlayerCard extends Component{
         >
         <img src={latha} alt="Player Profile"/>
         </CardMedia>
+        <div className={`fade-in + ${this.state.statsClass}`}>
         <CardTitle title="Club Stats" />
           <div style={styles.wrapper}>
             <Chip style={styles.chip}>
@@ -130,8 +142,9 @@ export default class PlayerCard extends Component{
             </Chip>
           </div>
         <CardActions>
-          <RaisedButton primary={true} fullWidth={true}label="Close Stats" />
+          <RaisedButton primary={true} fullWidth={true}label="Close Stats" onClick={this.fadeOut.bind(this)}/>
         </CardActions>
+      </div>
       </Card>
       </div>
     }
